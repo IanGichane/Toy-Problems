@@ -22,16 +22,28 @@ function speedCheck(){
         msgOk=`you are ${overSpeed} km/h above speed limit`
         dPoints=`you have received ${points} point(s)`
         countPoints = countPoints+points
-        tpoints=`you have a total of ${countPoints} point(s)`
+        if(countPoints>=12){
+            license='License suspended'
+            
+        }else{
+            license='License not suspended'
+        }
+        tpoints=`you have a total of ${countPoints} demerit point(s)`
+      
+    
     }
     //countPoints = countPoints+points
     //tpoints=`you have a total of ${countPoints} point(s)`
+ 
 
 
     document.getElementById("message").innerHTML = msg;
     document.getElementById("okay").innerHTML = msgOk;
     document.getElementById("driverPoints").innerHTML = dPoints;
     document.getElementById("totalPoints").innerHTML = tpoints;
+    document.getElementById("license").innerHTML = license;
     
 }
+
+
 speedCheck()

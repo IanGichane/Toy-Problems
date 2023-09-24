@@ -22,7 +22,7 @@ if(speed<=70){
     console.log(points)
     demeritPoints+=points
     console.log(demeritPoints)
-    if(demeritPoints=24){
+    if(demeritPoints>=24){
         console.log('License suspended')
         console.log(demeritPoints)
     }
