@@ -21,8 +21,7 @@ let x=studentGrade()
         }else{
             mssg='You got an E'
         }
-
-      
+    
     }else{
         msg = 'Enter a valid grade'
     } 
@@ -31,5 +30,7 @@ let x=studentGrade()
 
 }
 evaluateGrade()
+
+//refresh page to get best result
 
 
