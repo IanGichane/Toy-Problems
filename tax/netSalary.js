@@ -5,15 +5,16 @@ function yourSalaryPerMonth(){
 }
 
 //
-function yourgrossSalary(){
+function yourGrossSalary(){
     let yourPay=yourSalaryPerMonth()
     const gross=`Your gross salary is ${yourPay}`
     document.getElementById("gross").innerHTML =gross
+    return yourPay
 }
-yourgrossSalary()
+yourGrossSalary()
 
 function payAsYouEarn(){
-    const x = yourSalaryPerMonth();
+    const x = yourGrossSalary();
     let payee;
 
     if(x<=24000){
@@ -35,8 +36,9 @@ return payee;
 }
 payAsYouEarn();
 
-function nssfDeductions(nssf){
-    const x = yourSalaryPerMonth();
+function nssfDeductions(){
+    let nssf;
+    const x = yourGrossSalary();
     if(x<18000){
         nssf=0.06*6000
     }else if(x>18000){
@@ -46,9 +48,10 @@ function nssfDeductions(nssf){
     document.getElementById("NSSF").innerHTML = NSSF
     return nssf; 
 }
-//nssfDeductions();
-function deductions(nhif){
-    const x = yourSalaryPerMonth();
+nssfDeductions();
+function deductions(){
+    let nhif;
+    const x = yourGrossSalary();
     if(x<24999){
         nhif=750;
     }else if(x>=25000 && x<30000){
@@ -81,7 +84,7 @@ function deductions(nhif){
    // deductions()
 function netSalary(){
     //netIncome=yourSalaryPerMonth()-payAsYouEarn()-nssfDeduction()-deductions()
-    const grossPay = yourSalaryPerMonth();
+    const grossPay = yourGrossSalary();
     const PAYEE = payAsYouEarn();
     const NHIFCover = deductions();
     const NSSFCover = nssfDeductions();
@@ -93,6 +96,7 @@ function netSalary(){
     const net=`Your netpay is ${netIncome}`
 
     document.getElementById("netpay").innerHTML = net
+    return netIncome
     
 }
 netSalary();
